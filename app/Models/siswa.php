@@ -10,6 +10,8 @@ class siswa extends Model
     use HasFactory;
     public $guarded=["id"];
 
+    protected $table = 'siswa';
+
     public function sekolah(){
         return $this->belongsTo(sekolah::class);
     }

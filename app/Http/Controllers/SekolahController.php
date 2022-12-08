@@ -15,6 +15,15 @@ class SekolahController extends Controller
                 ]);
     }
 
+    function detail($id){
+        $sekolahs = sekolah::query()
+                    ->where('id', $id)
+                    ->first();
+                return view('sekolah.detail', [
+                    'sekolah' => $sekolahs
+                ]);
+    }
+
     function store(){
         return view("sekolah.store");
     }
@@ -27,5 +36,21 @@ class SekolahController extends Controller
         ];
         sekolah::query()->create($payload);
         return redirect(route('sekolah.data'));
+    }
+
+    function update(Request $request, $id){
+        $sekolah = sekolah::query()
+                   ->where('id', $id)
+                   ->first();
+            $sekolah->fill($request->all());
+            $sekolah->save();
+            return redirect(route('sekolah.data'));
+    }
+
+    function destroy($id){
+        $sekolah = sekolah::query()
+                   ->where('id', $id)
+                   ->delete();
+            return redirect()->back();
     }
 }

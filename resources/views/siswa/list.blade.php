@@ -7,6 +7,7 @@
     <title>Daftar Siswa</title>
 </head>
 <body>
+    <h1>Daftar Siswa</h1>
     <a href="{{ route('siswa.store') }}"><button>Tambah Siswa</button></a>
     <table border="1" style="border-collapse: collapse">
         <thead>
@@ -34,7 +35,7 @@
                         <a href="{{ route('siswa.destroy', ['id' => $siswa->id]) }}"><button>Hapus</button></a>
                     </td>
                     <td>
-                        <a href="{{ route('siswa.update', ['id' => $siswa->id]) }}"><button>Update</button></a>
+                        <a href="{{ route('siswa.detail', ['id' => $siswa->id]) }}"><button>Update</button></a>
                     </td>
                 <tr>
             @endforeach

@@ -20,7 +20,9 @@ class SiswaController extends Controller
                 ->where("id", $id)
                 ->first();
             return view("siswa.detail", [
-                'siswa' => $siswas]);
+                'siswa' => $siswas,
+                'sekolah_id' => sekolah::all()
+            ]);
     }
 
     function store(){ //untuk tampilan menambah data
@@ -51,7 +53,7 @@ class SiswaController extends Controller
                 ->first();
         $siswa->fill($request->all());
         $siswa->save();
-        return redirect()->back();
+        return redirect(route('siswa.list'));
     }
 
     function destroy($id){ //untuk menghapus data

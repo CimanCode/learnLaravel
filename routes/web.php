@@ -59,7 +59,7 @@ Route::prefix("user")->group(function(){
 
 Route::prefix("siswa")->group(function() {
     Route::get("/list", [SiswaController::class, "index"])->name("siswa.list");
-    Route::get("/detail{id}", [SiswaController::class, "detail"])->name("siswa.update");
+    Route::get("/detail{id}", [SiswaController::class, "detail"])->name("siswa.detail");
     Route::get("/store", [SiswaController::class, "store"])->name("siswa.store");
 
     Route::post("/create", [SiswaController::class, "create"])->name("siswa.create");
